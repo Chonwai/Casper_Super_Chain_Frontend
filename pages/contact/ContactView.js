@@ -235,6 +235,22 @@ export default function ContactView() {
                                         </div>
                                         <div>
                                             <label
+                                                htmlFor="phone"
+                                                className="block text-sm font-medium text-warm-gray-900">
+                                                Phone
+                                                <div className="mt-1">
+                                                    <input
+                                                        type="text"
+                                                        name="phone"
+                                                        id="phone"
+                                                        autoComplete="phone"
+                                                        className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
+                                                    />
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div className="sm:col-span-2">
+                                            <label
                                                 htmlFor="email"
                                                 className="block text-sm font-medium text-warm-gray-900">
                                                 Email

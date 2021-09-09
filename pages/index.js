@@ -11,9 +11,9 @@ export default function Home() {
                     <svg
                         className="absolute right-full transform translate-y-1/4 translate-x-1/4 lg:translate-x-1/2"
                         width={404}
-                        height={784}
+                        height={700}
                         fill="none"
-                        viewBox="0 0 404 784">
+                        viewBox="0 0 404 700">
                         <defs>
                             <pattern
                                 id="f210dbf6-a58d-4871-961e-36d5016a0f49"

@@ -35,6 +35,7 @@ module.exports = {
                 exceptions: 'ignore' || 'enforce',
             },
         ],
+        'react/forbid-prop-types': 0,
         'import/no-extraneous-dependencies': ['error', { peerDependencies: true }],
     },
 };

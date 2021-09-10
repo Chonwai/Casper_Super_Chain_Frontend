@@ -37,5 +37,11 @@ module.exports = {
         ],
         'react/forbid-prop-types': 0,
         'import/no-extraneous-dependencies': ['error', { peerDependencies: true }],
+        'class-methods-use-this': 0,
+        'no-shadow': 0,
+        camelcase: 0,
+        'react/prop-types': 0,
+        'no-unused-vars': 0,
+        'no-console': 0,
     },
 };

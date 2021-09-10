@@ -1,5 +1,6 @@
 import React from 'react';
 import { MailIcon, PhoneIcon } from '@heroicons/react/outline';
+import _get from 'lodash/get';
 
 const offices = [
     { id: 1, city: 'Los Angeles', address: ['4556 Brendan Ferry', 'Los Angeles, CA 90210'] },
@@ -8,7 +9,16 @@ const offices = [
     { id: 4, city: 'London', address: ['114 Cobble Lane', 'London N1 2EF'] },
 ];
 
-export default function ContactView() {
+export default function ContactView(props) {
+    // const {
+    //     formik = {
+    //         values: {},
+    //         errors: {},
+    //         handleChange: () => {},
+    //         handleSubmit: () => {},
+    //     },
+    // } = props;
+    const { values, errors, handleChange, handleSubmit } = props;
     return (
         <div className="min-h-screen bg-white">
             <main className="overflow-hidden">
@@ -214,9 +224,12 @@ export default function ContactView() {
                                         Send us a message
                                     </h3>
                                     <form
-                                        action="#"
-                                        method="POST"
-                                        className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
+                                        onSubmit={(e) => {
+                                            e.preventDefault(); // your submit logic here
+                                            handleSubmit();
+                                        }}
+                                        className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2
+                                        sm:gap-x-8">
                                         <div>
                                             <label
                                                 htmlFor="name"
@@ -229,22 +242,26 @@ export default function ContactView() {
                                                         id="name"
                                                         autoComplete="name"
                                                         className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
+                                                        value={_get(values, 'name')}
+                                                        onChange={handleChange('name')}
                                                     />
                                                 </div>
                                             </label>
                                         </div>
                                         <div>
                                             <label
-                                                htmlFor="phone"
+                                                htmlFor="phone_number"
                                                 className="block text-sm font-medium text-warm-gray-900">
-                                                Phone
+                                                Phone Number
                                                 <div className="mt-1">
                                                     <input
                                                         type="text"
-                                                        name="phone"
-                                                        id="phone"
+                                                        name="phone_number"
+                                                        id="phone_number"
                                                         autoComplete="phone"
                                                         className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
+                                                        value={_get(values, 'phone_number')}
+                                                        onChange={handleChange('phone_number')}
                                                     />
                                                 </div>
                                             </label>
@@ -261,6 +278,8 @@ export default function ContactView() {
                                                         type="email"
                                                         autoComplete="email"
                                                         className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
+                                                        value={_get(values, 'email')}
+                                                        onChange={handleChange('email')}
                                                     />
                                                 </div>
                                             </label>
@@ -275,31 +294,35 @@ export default function ContactView() {
                                                         id="role"
                                                         name="role"
                                                         className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-                                                        defaultValue="Customer">
-                                                        <option>Customer</option>
-                                                        <option>Supplier</option>
+                                                        defaultValue="customer"
+                                                        value={_get(values, 'role')}
+                                                        onChange={handleChange('role')}>
+                                                        <option>customer</option>
+                                                        <option>supplier</option>
                                                     </select>
                                                 </div>
                                             </label>
                                         </div>
                                         <div className="sm:col-span-2">
                                             <label
-                                                htmlFor="message"
+                                                htmlFor="description"
                                                 className="block text-sm font-medium text-warm-gray-900">
                                                 Description
                                                 <div className="mt-1">
                                                     <textarea
-                                                        id="message"
-                                                        name="message"
+                                                        id="description"
+                                                        name="description"
                                                         rows={4}
                                                         className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border border-warm-gray-300 rounded-md"
-                                                        aria-describedby="message-max"
+                                                        aria-describedby="description-max"
                                                         defaultValue=""
+                                                        value={_get(values, 'description')}
+                                                        onChange={handleChange('description')}
                                                     />
                                                 </div>
                                             </label>
                                             <span
-                                                id="message-max"
+                                                id="description-max"
                                                 className="text-sm text-warm-gray-500">
                                                 Max. 500 characters
                                             </span>

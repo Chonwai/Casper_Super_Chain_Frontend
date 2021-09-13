@@ -24,7 +24,6 @@ export default function ContactContainer() {
                     url: `${baseURL}/api/v1/auth/register/marketing`,
                     method: 'POST',
                 });
-                console.log(res);
                 if (res.data.status === 'success') {
                     toast({
                         title: 'Contact Success!',
@@ -36,7 +35,6 @@ export default function ContactContainer() {
                     });
                 }
             } catch (error) {
-                console.log(error);
                 toast({
                     title: 'Contact Fail!',
                     description: "We've created your account for you.",

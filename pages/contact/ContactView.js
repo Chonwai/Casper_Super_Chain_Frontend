@@ -10,15 +10,16 @@ const offices = [
 ];
 
 export default function ContactView(props) {
-    // const {
-    //     formik = {
-    //         values: {},
-    //         errors: {},
-    //         handleChange: () => {},
-    //         handleSubmit: () => {},
-    //     },
-    // } = props;
-    const { values, errors, handleChange, handleSubmit } = props;
+    const {
+        formik = {
+            values: {},
+            errors: {},
+            handleChange: () => {},
+            handleSubmit: () => {},
+        },
+    } = props;
+    console.log(props);
+    // const { values, errors, handleChange, handleSubmit } = props;
     return (
         <div className="min-h-screen bg-white">
             <main className="overflow-hidden">
@@ -226,7 +227,7 @@ export default function ContactView(props) {
                                     <form
                                         onSubmit={(e) => {
                                             e.preventDefault(); // your submit logic here
-                                            handleSubmit();
+                                            formik.handleSubmit();
                                         }}
                                         className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2
                                         sm:gap-x-8">
@@ -242,8 +243,8 @@ export default function ContactView(props) {
                                                         id="name"
                                                         autoComplete="name"
                                                         className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
-                                                        value={_get(values, 'name')}
-                                                        onChange={handleChange('name')}
+                                                        value={_get(formik.values, 'name')}
+                                                        onChange={formik.handleChange('name')}
                                                     />
                                                 </div>
                                             </label>
@@ -260,8 +261,10 @@ export default function ContactView(props) {
                                                         id="phone_number"
                                                         autoComplete="phone"
                                                         className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
-                                                        value={_get(values, 'phone_number')}
-                                                        onChange={handleChange('phone_number')}
+                                                        value={_get(formik.values, 'phone_number')}
+                                                        onChange={formik.handleChange(
+                                                            'phone_number'
+                                                        )}
                                                     />
                                                 </div>
                                             </label>
@@ -278,8 +281,8 @@ export default function ContactView(props) {
                                                         type="email"
                                                         autoComplete="email"
                                                         className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
-                                                        value={_get(values, 'email')}
-                                                        onChange={handleChange('email')}
+                                                        value={_get(formik.values, 'email')}
+                                                        onChange={formik.handleChange('email')}
                                                     />
                                                 </div>
                                             </label>
@@ -295,8 +298,8 @@ export default function ContactView(props) {
                                                         name="role"
                                                         className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
                                                         defaultValue="customer"
-                                                        value={_get(values, 'role')}
-                                                        onChange={handleChange('role')}>
+                                                        value={_get(formik.values, 'role')}
+                                                        onChange={formik.handleChange('role')}>
                                                         <option>customer</option>
                                                         <option>supplier</option>
                                                     </select>
@@ -316,8 +319,10 @@ export default function ContactView(props) {
                                                         className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border border-warm-gray-300 rounded-md"
                                                         aria-describedby="description-max"
                                                         defaultValue=""
-                                                        value={_get(values, 'description')}
-                                                        onChange={handleChange('description')}
+                                                        value={_get(formik.values, 'description')}
+                                                        onChange={formik.handleChange(
+                                                            'description'
+                                                        )}
                                                     />
                                                 </div>
                                             </label>

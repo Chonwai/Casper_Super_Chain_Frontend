@@ -7,7 +7,8 @@
         "check-lint": "eslint . --ext ts --ext tsx --ext js",
         "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
         "prepare": "husky install",
-        "cypress": "cypress open"
+        "cypress": "cypress open",
+        "heroku-postbuild": "npm run build"
     },
     "dependencies": {
         "@chakra-ui/react": "^1.6.7",

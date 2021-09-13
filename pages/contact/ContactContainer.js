@@ -8,7 +8,10 @@ const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 export default function ContactContainer() {
     const toast = useToast();
-    const [{ data, loading, error, response }, execute] = useAxios({ manual: true });
+    const [{ data, loading, error, response }, execute] = useAxios(
+        { url: `${baseURL}/api/v1/auth/register/marketing` },
+        { manual: true }
+    );
     const formik = useFormik({
         initialValues: {
             name: '',

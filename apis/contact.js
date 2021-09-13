@@ -10,11 +10,6 @@ export default class Auth {
 
     async contactCreateAccount(values) {
         console.log(values);
-        // const fetcher = async (url, values) => axios.post(url, values).then((res) => res.data);
-        // const { data, error } = useSWR(
-        //     [`${baseURL}/api/v1/auth/register/marketing`, values],
-        //     (url, values) => fetcher(url, { values })
-        // );
         const res = await axios.post(`${baseURL}/api/v1/auth/register/marketing`, values);
         return res.data;
     }

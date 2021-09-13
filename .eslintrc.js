@@ -43,5 +43,6 @@ module.exports = {
         'react/prop-types': 0,
         'no-unused-vars': 0,
         'no-console': 0,
+        'react/destructuring-assignment': 0,
     },
 };

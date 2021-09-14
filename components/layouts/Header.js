@@ -9,8 +9,7 @@ const navigation = [
 
 export default function Header() {
     return (
-        <div className="relative bg-gray-50 overflow-hidden">
-            {/* <div className="relative"> */}
+        <div className="relative bg-gray-50">
             <Popover>
                 <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6">
                     <nav

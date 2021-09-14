@@ -286,7 +286,6 @@ export default function ContactView(props) {
                                                         id="role"
                                                         name="role"
                                                         className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-                                                        defaultValue="customer"
                                                         value={_get(values, 'role')}
                                                         onChange={handleChange('role')}>
                                                         <option>customer</option>
@@ -307,7 +306,6 @@ export default function ContactView(props) {
                                                         rows={4}
                                                         className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border border-warm-gray-300 rounded-md"
                                                         aria-describedby="description-max"
-                                                        defaultValue=""
                                                         value={_get(values, 'description')}
                                                         onChange={handleChange('description')}
                                                     />
